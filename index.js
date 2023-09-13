@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = process.env.PORT;
 const fruits = require("./fruits.json");
@@ -10,6 +11,7 @@ const getFruitIndex = name => {
     return fruits.findIndex((fruit) => fruit.name.toLowerCase() == name);
 }
 
+app.use(cors());
 app.use(express.json());
 
 
